@@ -18,8 +18,8 @@ app.get('/', function(req, res) {
   res.sendFile(process.cwd() + '/views/index.html');
 });
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.myfqo.mongodb.net/${process.env.DB_DATABSE}?retryWrites=true&w=majority`;
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+//const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.myfqo.mongodb.net/${process.env.DB_DATABSE}?retryWrites=true&w=majority`;
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 let urlSchema = new mongoose.Schema({
   original_url : {type: String, required: true},
