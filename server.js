@@ -57,7 +57,7 @@ app.post('/api/shortURL', async (req, res) => {
         short_url: shortId
       })
       await findOne.save()
-      shortId += 1;
+      shortId++;
       res.json({
         original_url: findOne.original_url,
         short_url: findOne.short_url
