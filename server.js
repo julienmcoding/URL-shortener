@@ -26,7 +26,7 @@ let urlSchema = new mongoose.Schema({
   short_url: Number
 })
 
-let Url = mongoose.model('Url', urlSchema)
+let Url = mongoose.model('Url', urlSchema);
 
 app.post('/api/shortURL', async (req, res) => {
 
@@ -52,12 +52,12 @@ app.post('/api/shortURL', async (req, res) => {
 
     // create the new url if it doesn't exist yet
     } else {
+      shortId =+ 1;
       findOne = new Url({
         original_url: input,
         short_url: shortId
       })
       await findOne.save()
-      shortId++;
       res.json({
         original_url: findOne.original_url,
         short_url: findOne.short_url
